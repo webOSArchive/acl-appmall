@@ -32,32 +32,29 @@ $logEntry = date('Y-m-d H:i:s') . " | Module: $module | Page: $page | Pid: $prod
 
 // Route to appropriate handler
 switch ($module) {
-    // MINIMAL TEST - All product listings return same test product
-    // NOTE: <response> is the wrapper, <results> contains the count (leaf element)
+    // Product listings
     case 'allprods':
-    case 'ns':
-    case 'bss':
-    case 'fs':
-    case 'fts':
-    case 'dod':
-        echo '<?xml version="1.0" encoding="UTF-8"?>
-<response>
-<results>1</results>
-<page>1</page>
-<moreAvailable>No</moreAvailable>
-<product id="1001">
-<productName>Test App</productName>
-<shortDescription>A test application</shortDescription>
-<price>0.00</price>
-<usersRating>5</usersRating>
-<thumbnail>https://api.openmobileappmall.com/images/es-file-explorer-icon.png</thumbnail>
-<version>1.0</version>
-<PublisherName>Test</PublisherName>
-<downloadSize>1 MB</downloadSize>
-<InternalProductName>com.test.app</InternalProductName>
-<CFScreenshotURL>https://api.openmobileappmall.com/images/es-file-explorer-icon.png</CFScreenshotURL>
-</product>
-</response>';
+        echo getAllProducts($page, $itemsPerPage);
+        break;
+
+    case 'ns':  // New software
+        echo getProductsByTag('new', $page, $itemsPerPage);
+        break;
+
+    case 'bss':  // Best sellers
+        echo getProductsByTag('bestseller', $page, $itemsPerPage);
+        break;
+
+    case 'fs':  // Free software
+        echo getFreeProducts($page, $itemsPerPage);
+        break;
+
+    case 'fts':  // Featured/recommended
+        echo getProductsByTag('featured', $page, $itemsPerPage);
+        break;
+
+    case 'dod':  // Deal of the day
+        echo getProductsByTag('featured', $page, $itemsPerPage);
         break;
 
     // Product details
