@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenMobile AppMall - ACL App Archive</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2e7d32;
+            border-bottom: 2px solid #2e7d32;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1565c0;
+            margin-top: 30px;
+        }
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #1565c0;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .warning-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        ul {
+            padding-left: 25px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        a {
+            color: #1565c0;
+        }
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>OpenMobile AppMall Archive</h1>
+
+        <p>Welcome to the community-maintained archive of the OpenMobile AppMall for ACL (Application Compatibility Layer).</p>
+
+        <div class="info-box">
+            <strong>What is this?</strong><br>
+            This server provides the backend API for the AppMall app that comes bundled with ACL on HP TouchPad. The original OpenMobile servers shut down years ago, so this community archive keeps the AppMall functional.
+        </div>
+
+        <h2>For HP TouchPad Users</h2>
+
+        <p>If you have ACL installed on your HP TouchPad, the AppMall app should now work automatically. Open the AppMall to browse and download apps that have been tested to work with ACL.</p>
+
+        <h2>Available Apps</h2>
+
+        <p>This archive includes a curated selection of Android apps compatible with Android 2.3 (Gingerbread) that run well on ACL:</p>
+
+        <ul>
+            <li><strong>File Managers</strong> - ES File Explorer, and more</li>
+            <li><strong>Browsers</strong> - Opera Mini, Firefox</li>
+            <li><strong>Media Players</strong> - VLC, MX Player</li>
+            <li><strong>Productivity</strong> - Kingsoft Office, Adobe Reader</li>
+            <li><strong>Games</strong> - Angry Birds, Cut the Rope, and classics</li>
+        </ul>
+
+        <h2>Contributing Apps</h2>
+
+        <div class="warning-box">
+            <strong>Want to add an app?</strong><br>
+            We're looking for APKs of apps that work well on Android 2.3/ACL. If you have suggestions or APK files to contribute, please reach out to the community.
+        </div>
+
+        <h2>Technical Information</h2>
+
+        <p>This server implements the OpenMobile AppMall API:</p>
+        <ul>
+            <li>API Endpoint: <code>/appmallpipe.php</code></li>
+            <li>Response Format: XML</li>
+            <li>Authentication: POS ID based (handled automatically by AppMall app)</li>
+        </ul>
+
+        <h2>About ACL</h2>
+
+        <p>ACL (Application Compatibility Layer) was developed by OpenMobile to run Android 2.3 (Gingerbread) apps on HP TouchPad running webOS 3.0.x. While OpenMobile is no longer in business, the ACL software continues to work thanks to community-maintained patches.</p>
+
+        <div class="footer">
+            <p>This is a community preservation project.<br>
+            Not affiliated with OpenMobile or HP.</p>
+        </div>
+    </div>
+</body>
+</html>

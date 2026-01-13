@@ -1,0 +1,35 @@
+# AppMall Mock Server - Apache Configuration
+
+# Enable rewrite engine
+RewriteEngine On
+
+# Route API requests to the api directory
+RewriteRule ^appmallpipe\.php$ api/appmallpipe.php [L]
+RewriteRule ^appmallpipeorder\.php$ api/appmallpipeorder.php [L]
+
+# Serve static files from their directories
+RewriteRule ^apps/(.*)$ apps/$1 [L]
+RewriteRule ^images/(.*)$ images/$1 [L]
+
+# Default to index.html for root
+RewriteRule ^$ index.html [L]
+
+# Set CORS headers for API endpoints
+<FilesMatch "\.php$">
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST"
+    Header set Access-Control-Allow-Headers "Content-Type"
+</FilesMatch>
+
+# Set proper MIME types
+AddType application/vnd.android.package-archive .apk
+AddType image/png .png
+AddType image/jpeg .jpg .jpeg
+
+# Disable directory listing
+Options -Indexes
+
+# Enable compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/xml application/xml
+</IfModule>
