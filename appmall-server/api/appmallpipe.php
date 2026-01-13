@@ -293,11 +293,12 @@ function getProductDetails($productId) {
 }
 
 function buildProductXml($app, $detailed = false) {
-    $xml = "  <product>\n";
+    $id = escapeXml($app['id'] ?? '');
+    $xml = "  <product id=\"$id\">\n";
     $xml .= "    <productName>" . escapeXml($app['name'] ?? '') . "</productName>\n";
     $xml .= "    <shortDescription>" . escapeXml($app['short_description'] ?? '') . "</shortDescription>\n";
     $xml .= "    <price>" . escapeXml($app['price'] ?? '0.00') . "</price>\n";
-    $xml .= "    <rating>" . intval($app['rating'] ?? 0) . "</rating>\n";
+    $xml .= "    <usersRating>" . intval($app['rating'] ?? 0) . "</usersRating>\n";
     $xml .= "    <thumbnail>" . escapeXml($app['icon_url'] ?? '') . "</thumbnail>\n";
     $xml .= "    <version>" . escapeXml($app['version'] ?? '1.0') . "</version>\n";
     $xml .= "    <PublisherName>" . escapeXml($app['publisher'] ?? '') . "</PublisherName>\n";
