@@ -1,4 +1,33 @@
-# AppMall API Documentation
+# AppMall Revival
+
+A revival project for the OpenMobile AppMall Android app store, originally bundled with ACL (Android Compatibility Layer) on HP TouchPad.
+
+## Overview
+
+The original OpenMobile AppMall servers are defunct. This project provides:
+- **Patched APK** (`AppMall_webosarchive.apk`) - Works with HTTP, no login required
+- **Mock PHP server** (`appmall-server/`) - Responds to the app's API requests
+
+**Live deployment:** http://aclappmall.webosarchive.org
+
+## Quick Start
+
+### Using the App
+1. Download `AppMall_webosarchive.apk`
+2. Install on your HP TouchPad running ACL
+3. Browse and install apps from the catalog
+
+### Development Setup
+```bash
+./setup.sh  # Decompiles APK for editing
+```
+
+### Server Deployment
+See `appmall-server/README.md` for deployment instructions.
+
+---
+
+# API Documentation
 
 Reverse-engineered from `AppMall_OpenMobile_2.0.10.777.apk` (Android app for ACL)
 
@@ -214,57 +243,41 @@ The API returns XML responses. Example structure for product list:
 </results>
 ```
 
-## Strategies for Revival
+## Implementation Notes
 
-### Option 1: Mock Server
+This project uses a combination of **mock server** and **patched APK**:
 
-Create a simple HTTP server that:
-1. Accepts POST requests to `/appmallpipe.php`
-2. Parses the `module` parameter
-3. Returns appropriate XML responses with curated app listings
-4. Hosts APK files for download
+### Why HTTP Instead of HTTPS?
+Android 2.3.6 (ACL) only supports TLS 1.0 with older cipher suites that modern servers have deprecated. Rather than maintaining complex TLS termination, the patched APK uses plain HTTP.
 
-Requirements:
-- Web server (nginx/Apache) with PHP or any backend
-- SSL certificate (app uses HTTPS)
-- DNS or hosts file modification on device
+### APK Modifications
+The APK is decompiled with `apktool` and modified at the smali (Dalvik bytecode) level:
 
-### Option 2: Patch the APK
+1. **Server URL** - Changed from `https://api.openmobileappmall.com` to `http://aclappmall.webosarchive.org`
+2. **HTTP connection fix** - Removed `HttpsURLConnection` cast that broke HTTP
+3. **Welcome popup disabled** - `getIsShowWelcomeScreen()` always returns "0"
+4. **Login bypass** - `checkLoginAndPurchase()` skips login and starts download directly
+5. **UI cleanup** - Hidden non-functional buttons (list view download, add review)
 
-Modify the app to:
-1. Change `MOBI_PIPE_BASE_URL` to point to new server
-2. Optionally disable SSL certificate verification (already has `DO_NOT_VERIFY`)
-3. Re-sign and distribute the patched APK
+### Server Hack: FreeTrialURL
+The app's XML parser doesn't populate `getDownloadURL()` from `<DownloadURL>` tags, but DOES parse `<FreeTrialURL>`. The server puts the download URL in both fields as a workaround.
 
-Key files to modify:
-- `com/openmobile/store/common/mobipipe/MobiPipeRequestConstants.java`
-  - `MOBI_PIPE_BASE_URL`
-  - `MOBI_PIPE_URL`
-  - `MOBI_PIPE_ORDER_URL`
+### Implemented Modules
+- `allprods`, `ns`, `bss`, `fs`, `fts`, `dod` - Product listings
+- `browsecategories`, `browsesubcategories`, `software_by_category` - Categories
+- `pd` - Product details
+- `search` - Search
+- `userdetails`, `verify` - Auth (accepts any credentials)
 
-### Option 3: DNS Spoofing
+## Key Files (Smali)
 
-Point `api.openmobileappmall.com` to a local server:
-1. Set up local DNS or modify `/etc/hosts` on device
-2. Run mock server on that IP
-3. Requires SSL certificate for the domain (or patching app to accept self-signed)
+| File | Purpose |
+|------|---------|
+| `MobiPipeRequestConstants.smali` | Server URLs |
+| `MobiPipeManager.smali` | HTTP connection handling |
+| `User.smali` | Welcome popup logic |
+| `MainActivity.smali` | Download/purchase flow |
+| `ListProductAdapter.smali` | List view UI |
+| `ProductDetails.smali` | Detail view UI |
 
-## Minimal Mock Server Endpoints
-
-For basic functionality, implement these modules:
-
-1. **`allprods`** - Main product listing
-2. **`browsecategories`** - Category list
-3. **`pd`** - Product details
-4. **`search`** - Search functionality
-5. **`gettranslatedphrases`** - Localization (can return empty)
-
-All other modules can return empty `<results></results>` or static content.
-
-## Files in Decompiled APK
-
-- `AppMall-decompiled/sources/com/openmobile/store/common/mobipipe/MobiPipeManager.java` - Main API client
-- `AppMall-decompiled/sources/com/openmobile/store/common/mobipipe/MobiPipeRequestConstants.java` - URL and parameter constants
-- `AppMall-decompiled/sources/com/openmobile/store/common/mobipipe/TagNames.java` - XML tag names
-- `AppMall-decompiled/sources/com/openmobile/store/common/mobipipe/Product.java` - Product model
-- `AppMall-decompiled/sources/com/openmobile/store/common/mobipipe/Category.java` - Category model
+All in `AppMall-decompiled/smali/com/openmobile/`
