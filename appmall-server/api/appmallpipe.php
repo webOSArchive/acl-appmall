@@ -318,8 +318,9 @@ function buildProductXml($app, $detailed = false) {
     if ($detailed) {
         $xml .= "    <longDescription>" . escapeXml($app['long_description'] ?? $app['short_description'] ?? '') . "</longDescription>\n";
         $xml .= "    <longFeatures>" . escapeXml($app['features'] ?? '') . "</longFeatures>\n";
-        $xml .= "    <DownloadURL>" . escapeXml($app['download_url'] ?? '') . "</DownloadURL>\n";
-        $xml .= "    <FreeTrialURL>" . escapeXml($app['trial_url'] ?? '') . "</FreeTrialURL>\n";
+        $xml .= "    <downloadURL>" . escapeXml($app['download_url'] ?? '') . "</downloadURL>\n";
+        # HACK: Put download URL in FreeTrialURL since the app parses that field but not downloadURL
+        $xml .= "    <FreeTrialURL>" . escapeXml($app['download_url'] ?? '') . "</FreeTrialURL>\n";
         $xml .= "    <YouTubeURL>" . escapeXml($app['youtube_url'] ?? '') . "</YouTubeURL>\n";
 
         // Screenshots (only in detailed view)
