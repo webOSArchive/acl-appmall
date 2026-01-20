@@ -98,7 +98,7 @@ $APP_CATALOG = [
         'screenshots' => [],
         'category_id' => 'communication',
         'subcategory_id' => 'browsers',
-        'tags' => ['bestseller'],
+        'tags' => ['featured', 'bestseller'],
     ],
 
     // =========================================================================
@@ -165,7 +165,7 @@ $APP_CATALOG = [
         'download_url' => $BASE_URL . '/apps/tiny-deathstar_1.4.2.apk',
         'screenshots' => [],
         'category_id' => 'games',
-        'subcategory_id' => 'puzzle',
+        'subcategory_id' => 'strategy',
         'tags' => [],
     ],
 

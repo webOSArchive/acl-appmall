@@ -23,7 +23,7 @@ $CATEGORIES = [
 
     [
         'id' => 'tools',
-        'name' => 'Tools & Utilities',
+        'name' => 'Tools',
         'icon' => $BASE_URL . '/images/cat-tools.png',
         'subcategories' => [
             ['id' => 'file-managers', 'name' => 'File Managers'],
@@ -52,7 +52,7 @@ $CATEGORIES = [
         'subcategories' => [
             ['id' => 'video-players', 'name' => 'Video Players'],
             ['id' => 'music-players', 'name' => 'Music Players'],
-            ['id' => 'photo', 'name' => 'Photo & Gallery'],
+            ['id' => 'photo', 'name' => 'Photo'],
             ['id' => 'streaming', 'name' => 'Streaming'],
         ],
     ],
