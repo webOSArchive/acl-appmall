@@ -84,7 +84,7 @@ $APP_CATALOG = [
     [
         'id' => 'firefox',
         'package_name' => 'com.mozilla.firefox',
-        'name' => 'Android Browser',
+        'name' => 'Mozilla Firefox',
         'short_description' => 'Mozilla Firefox web browser for Android',
         'long_description' => '<p>Firefox for Android brings the Firefox experience to your mobile device. Features include tabbed browsing, sync with desktop Firefox, and add-on support.</p>',
         'features' => '<ul><li>Sync with Firefox desktop</li><li>Add-on support</li><li>Private browsing</li><li>Customizable</li></ul>',
