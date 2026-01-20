@@ -94,6 +94,8 @@ $xml .= "<FreeTrialURL>" . $app['download_url'] . "</FreeTrialURL>\n";  // HACK
 ### Adding Apps
 Edit `appmall-server/config/apps.php`. Upload APKs to `api/apps/` and icons to `api/images/`.
 
+**Important:** Product IDs must be alphanumeric only (no hyphens or special characters). The Android client fails to parse products with hyphens in their IDs.
+
 ## Building the APK
 
 ```bash
@@ -146,3 +148,4 @@ See `appmall-server/README.md` for full deployment instructions.
 | Download button does nothing | Missing download URL | Check `FreeTrialURL` field in server response |
 | App crash on download | Notification ID not numeric | Use `hashCode()` of product ID string |
 | Connection error | TLS incompatibility | Use HTTP, not HTTPS |
+| App not showing in client | Hyphen in product ID | Use alphanumeric IDs only (e.g., `vlc` not `vlc-player`) |

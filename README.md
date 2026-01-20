@@ -262,6 +262,9 @@ The APK is decompiled with `apktool` and modified at the smali (Dalvik bytecode)
 ### Server Hack: FreeTrialURL
 The app's XML parser doesn't populate `getDownloadURL()` from `<DownloadURL>` tags, but DOES parse `<FreeTrialURL>`. The server puts the download URL in both fields as a workaround.
 
+### Product ID Restriction
+Product IDs in `apps.php` must be alphanumeric only - **no hyphens or special characters**. The Android client's XML parser fails to load products with hyphens in their IDs (e.g., use `vlc` or `esfileexplorer`, not `vlc-player` or `es-file-explorer`).
+
 ### Implemented Modules
 - `allprods`, `ns`, `bss`, `fs`, `fts`, `dod` - Product listings
 - `browsecategories`, `browsesubcategories`, `software_by_category` - Categories
