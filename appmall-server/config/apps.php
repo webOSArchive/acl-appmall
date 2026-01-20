@@ -258,26 +258,6 @@ $APP_CATALOG = [
     ],
 
     [
-        'id' => 'templerun',
-        'package_name' => 'com.imangi.templerun',
-        'name' => 'Temple Run',
-        'short_description' => 'Endless running adventure - escape the temple with the idol',
-        'long_description' => '<p>Temple Run is the original endless running game. You have stolen the cursed idol from the temple, and now you have to run for your life to escape the evil demon monkeys.</p>',
-        'features' => '<ul><li>Swipe to turn, jump, and slide</li><li>Tilt to collect coins</li><li>Unlock characters and power-ups</li><li>Endless gameplay</li></ul>',
-        'version' => '1.0.3',
-        'price' => '0.00',
-        'rating' => 5,
-        'publisher' => 'Imangi Studios',
-        'size' => '26 MB',
-        'icon_url' => $BASE_URL . '/images/templerun-icon.png',
-        'download_url' => $BASE_URL . '/apps/templerun_1.0.3.apk',
-        'screenshots' => [],
-        'category_id' => 'games',
-        'subcategory_id' => 'arcade',
-        'tags' => [],
-    ],
-
-    [
         'id' => 'templerun2',
         'package_name' => 'com.imangi.templerun2',
         'name' => 'Temple Run 2',
