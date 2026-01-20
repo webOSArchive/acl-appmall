@@ -116,7 +116,11 @@
             padding: 5px 12px;
             border-radius: 15px;
             font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-block;
         }
+        .app-price:hover { background: #00b8e6; }
         .app-size { color: #888; }
         .loading {
             text-align: center;
@@ -243,6 +247,7 @@
 
                 let html = '';
                 products.forEach(p => {
+                    const id = p.getAttribute('id');
                     const name = p.querySelector('productName')?.textContent || 'Unknown';
                     const desc = p.querySelector('shortDescription')?.textContent || '';
                     const icon = p.querySelector('thumbnail')?.textContent || '';
@@ -251,6 +256,7 @@
                     const rating = parseInt(p.querySelector('usersRating')?.textContent || '0');
                     const size = p.querySelector('downloadSize')?.textContent || '';
                     const version = p.querySelector('version')?.textContent || '';
+                    const priceLabel = price === '0.00' ? 'FREE' : '$' + price;
 
                     html += `
                         <div class="app">
@@ -265,7 +271,7 @@
                             <div class="app-meta">
                                 <span class="app-rating">${renderStars(rating)}</span>
                                 <span class="app-size">${size} • v${version}</span>
-                                <span class="app-price">${price === '0.00' ? 'FREE' : '$' + price}</span>
+                                <a class="app-price" href="#" onclick="downloadApp('${id}', this); return false;">${priceLabel}</a>
                             </div>
                         </div>
                     `;
@@ -309,6 +315,24 @@
             document.querySelectorAll('.tab').forEach((t, i) => {
                 t.classList.toggle('active', i === idx);
             });
+        }
+
+        async function downloadApp(productId, btn) {
+            const originalText = btn.textContent;
+            btn.textContent = '...';
+            try {
+                const xml = await fetchXml('pd', { Pid: productId });
+                const downloadUrl = xml.querySelector('FreeTrialURL')?.textContent ||
+                                    xml.querySelector('downloadURL')?.textContent;
+                if (downloadUrl) {
+                    window.location.href = downloadUrl;
+                } else {
+                    alert('Download URL not found');
+                }
+            } catch (e) {
+                alert('Error fetching download: ' + e.message);
+            }
+            btn.textContent = originalText;
         }
 
         // Initial load
