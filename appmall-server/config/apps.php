@@ -34,7 +34,7 @@ $APP_CATALOG = [
     // =========================================================================
 
     [
-        'id' => 'es-file-explorer',
+        'id' => 'esfileexplorer',
         'package_name' => 'com.estrongs.android.pop',
         'name' => 'ES File Explorer',
         'short_description' => 'Powerful file manager with cloud support and root access',
@@ -62,7 +62,7 @@ $APP_CATALOG = [
     // =========================================================================
 
     [
-        'id' => 'opera-mini',
+        'id' => 'operamini',
         'package_name' => 'com.opera.mini.android',
         'name' => 'Opera Mini',
         'short_description' => 'Fast, lightweight browser with data compression',
@@ -130,7 +130,7 @@ $APP_CATALOG = [
     // =========================================================================
 
     [
-        'id' => 'cut-the-rope',
+        'id' => 'cuttherope',
         'package_name' => 'com.zeptolab.ctr.free',
         'name' => 'Cut the Rope',
         'short_description' => 'Physics puzzle game - feed candy to Om Nom!',
@@ -150,7 +150,7 @@ $APP_CATALOG = [
     ],
 
      [
-        'id' => 'tiny-deathstar',
+        'id' => 'tinydeathstar',
         'package_name' => 'com.lucasarts.tinydeathstar_goo',
         'name' => 'Tiny Death Star',
         'short_description' => 'A strategy and management game where you are in charge of your own Death Star!',
