@@ -146,7 +146,7 @@ $APP_CATALOG = [
         'screenshots' => [],
         'category_id' => 'games',
         'subcategory_id' => 'puzzle',
-        'tags' => ['featured'],
+        'tags' => [],
     ],
 
      [
@@ -166,7 +166,7 @@ $APP_CATALOG = [
         'screenshots' => [],
         'category_id' => 'games',
         'subcategory_id' => 'puzzle',
-        'tags' => ['featured'],
+        'tags' => [],
     ],
 
     // =========================================================================
@@ -190,7 +190,7 @@ $APP_CATALOG = [
         'screenshots' => [],
         'category_id' => 'games',
         'subcategory_id' => 'racing',
-        'tags' => ['featured'],
+        'tags' => [],
     ],
 
     // =========================================================================
@@ -214,7 +214,7 @@ $APP_CATALOG = [
         'screenshots' => [],
         'category_id' => 'games',
         'subcategory_id' => 'arcade',
-        'tags' => ['featured'],
+        'tags' => [],
     ],
 
     [
@@ -234,7 +234,7 @@ $APP_CATALOG = [
         'screenshots' => [],
         'category_id' => 'games',
         'subcategory_id' => 'arcade',
-        'tags' => ['featured', 'bestseller'],
+        'tags' => [],
     ],
 
     [
@@ -254,7 +254,7 @@ $APP_CATALOG = [
         'screenshots' => [],
         'category_id' => 'games',
         'subcategory_id' => 'arcade',
-        'tags' => ['featured', 'bestseller'],
+        'tags' => [],
     ],
 
     [
@@ -274,7 +274,7 @@ $APP_CATALOG = [
         'screenshots' => [],
         'category_id' => 'games',
         'subcategory_id' => 'arcade',
-        'tags' => ['bestseller'],
+        'tags' => [],
     ],
 
     [
@@ -294,7 +294,7 @@ $APP_CATALOG = [
         'screenshots' => [],
         'category_id' => 'games',
         'subcategory_id' => 'arcade',
-        'tags' => ['featured', 'bestseller'],
+        'tags' => [],
     ],
 
     [
@@ -338,7 +338,7 @@ $APP_CATALOG = [
         'screenshots' => [],
         'category_id' => 'games',
         'subcategory_id' => 'puzzle',
-        'tags' => ['bestseller'],
+        'tags' => [],
     ],
 
     [
@@ -358,7 +358,7 @@ $APP_CATALOG = [
         'screenshots' => [],
         'category_id' => 'games',
         'subcategory_id' => 'puzzle',
-        'tags' => ['featured'],
+        'tags' => [],
     ],
 
     [
@@ -402,7 +402,7 @@ $APP_CATALOG = [
         'screenshots' => [],
         'category_id' => 'games',
         'subcategory_id' => 'casual',
-        'tags' => ['featured', 'bestseller'],
+        'tags' => [],
     ],
 
     // =========================================================================
@@ -426,7 +426,7 @@ $APP_CATALOG = [
         'screenshots' => [],
         'category_id' => 'tools',
         'subcategory_id' => 'utilities',
-        'tags' => [],
+        'tags' => ['New'],
     ],
 
     [
@@ -446,7 +446,7 @@ $APP_CATALOG = [
         'screenshots' => [],
         'category_id' => 'tools',
         'subcategory_id' => 'utilities',
-        'tags' => [],
+        'tags' => ['New'],
     ],
 
     [
@@ -466,7 +466,7 @@ $APP_CATALOG = [
         'screenshots' => [],
         'category_id' => 'tools',
         'subcategory_id' => 'utilities',
-        'tags' => [],
+        'tags' => ['New'],
     ],
 
     [
@@ -486,27 +486,28 @@ $APP_CATALOG = [
         'screenshots' => [],
         'category_id' => 'communication',
         'subcategory_id' => 'email',
-        'tags' => [],
+        'tags' => ['New'],
     ],
 
+
     [
-        'id' => 'screencast',
-        'package_name' => 'com.ms.screencast',
-        'name' => 'Screencast',
-        'short_description' => 'Record your screen to video',
-        'long_description' => '<p>Screencast allows you to record your device screen to video. Perfect for creating tutorials, recording gameplay, or capturing app demos.</p>',
-        'features' => '<ul><li>Screen recording</li><li>Adjustable quality</li><li>No root required</li><li>Easy sharing</li></ul>',
-        'version' => '3.2a',
+        'id' => 'music',
+        'package_name' => 'com.android.music',
+        'name' => 'Music',
+        'short_description' => 'Android music player for your audio library',
+        'long_description' => '<p>The stock Android Music app. Browse and play your music library by artist, album, song, or playlist. Simple and reliable music playback.</p>',
+        'features' => '<ul><li>Browse by artist, album, song</li><li>Playlist support</li><li>Background playback</li><li>Lock screen controls</li></ul>',
+        'version' => '2.3.6',
         'price' => '0.00',
         'rating' => 4,
-        'publisher' => 'MS Apps',
-        'size' => '3.4 MB',
-        'icon_url' => $BASE_URL . '/images/screencast-icon.png',
-        'download_url' => $BASE_URL . '/apps/screencast_3.2a.apk',
+        'publisher' => 'Google',
+        'size' => '644 KB',
+        'icon_url' => $BASE_URL . '/images/music-icon.png',
+        'download_url' => $BASE_URL . '/apps/music_2.3.6.apk',
         'screenshots' => [],
-        'category_id' => 'tools',
-        'subcategory_id' => 'utilities',
-        'tags' => [],
+        'category_id' => 'media',
+        'subcategory_id' => 'music-players',
+        'tags' => ['New'],
     ],
 
     // =========================================================================
@@ -534,22 +535,22 @@ $APP_CATALOG = [
     ],
 
     [
-        'id' => 'music',
-        'package_name' => 'com.android.music',
-        'name' => 'Music',
-        'short_description' => 'Android music player for your audio library',
-        'long_description' => '<p>The stock Android Music app. Browse and play your music library by artist, album, song, or playlist. Simple and reliable music playback.</p>',
-        'features' => '<ul><li>Browse by artist, album, song</li><li>Playlist support</li><li>Background playback</li><li>Lock screen controls</li></ul>',
-        'version' => '2.3.6',
+        'id' => 'screencast',
+        'package_name' => 'com.ms.screencast',
+        'name' => 'Screencast',
+        'short_description' => 'Record your screen to video',
+        'long_description' => '<p>Screencast allows you to record your device screen to video. Perfect for creating tutorials, recording gameplay, or capturing app demos.</p>',
+        'features' => '<ul><li>Screen recording</li><li>Adjustable quality</li><li>No root required</li><li>Easy sharing</li></ul>',
+        'version' => '3.2a',
         'price' => '0.00',
         'rating' => 4,
-        'publisher' => 'Google',
-        'size' => '644 KB',
-        'icon_url' => $BASE_URL . '/images/music-icon.png',
-        'download_url' => $BASE_URL . '/apps/music_2.3.6.apk',
+        'publisher' => 'MS Apps',
+        'size' => '3.4 MB',
+        'icon_url' => $BASE_URL . '/images/screencast-icon.png',
+        'download_url' => $BASE_URL . '/apps/screencast_3.2a.apk',
         'screenshots' => [],
-        'category_id' => 'media',
-        'subcategory_id' => 'music-players',
+        'category_id' => 'tools',
+        'subcategory_id' => 'utilities',
         'tags' => [],
     ],
 
