@@ -2,6 +2,7 @@
 AppMall-decompiled/
 AppMall-extracted/
 AppMall-smali/
+incoming/
 
 # Signing artifacts
 appmall-key.keystore
@@ -18,3 +19,11 @@ appmall-server/logs/*.log
 # OS
 .DS_Store
 Thumbs.db
+
+# Commercial APKs
+appmall-server/api/apps/*.apk
+!appmall-server/api/apps/calendar_2.3.6.apk
+!appmall-server/api/apps/contacts_2.3.6.apk
+!appmall-server/api/apps/deskclock_2.0.2.apk
+!appmall-server/api/apps/email_2.3.4.apk
+!appmall-server/api/apps/music_2.3.6.apk
