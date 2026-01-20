@@ -1,8 +1,0 @@
-# Logs
-logs/*.log
-
-# APK files (too large for git)
-apps/*.apk
-
-# Keep directory structure
-!.gitkeep
